@@ -136,7 +136,6 @@ class FileRenamerApp:
         if mode == "add":
             self.action_btn.grid(row=8, column=0, columnspan=2, pady=(0, 20))
             self.result_text.grid(row=9, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
-            self.root.parent.rowconfigure(9, weight=1) if hasattr(self.root, 'parent') else None
         else:
             self.action_btn.grid(row=11, column=0, columnspan=2, pady=(0, 20))
             self.result_text.grid(row=12, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
