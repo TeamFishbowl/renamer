@@ -72,9 +72,6 @@ class FileRenamerApp:
                                     command=self.process_files)
         self.action_btn.grid(row=8, column=0, columnspan=2, pady=(0, 20))
         
-        # Initialize UI to show add mode by default
-        self.update_ui_labels()
-        
         # Status/Results area
         self.result_text = tk.Text(main_frame, height=8, width=60, wrap=tk.WORD)
         scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=self.result_text.yview)
@@ -84,6 +81,9 @@ class FileRenamerApp:
         scrollbar.grid(row=9, column=2, sticky=(tk.N, tk.S))
         
         main_frame.rowconfigure(9, weight=1)
+        
+        # Initialize UI to show add mode by default
+        self.update_ui_labels()
         
     def choose_folder(self):
         """Open folder selection dialog"""
