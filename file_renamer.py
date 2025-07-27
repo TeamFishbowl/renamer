@@ -72,6 +72,9 @@ class FileRenamerApp:
                                     command=self.process_files)
         self.action_btn.grid(row=8, column=0, columnspan=2, pady=(0, 20))
         
+        # Initialize UI to show add mode by default
+        self.update_ui_labels()
+        
         # Status/Results area
         self.result_text = tk.Text(main_frame, height=8, width=60, wrap=tk.WORD)
         scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=self.result_text.yview)
@@ -107,10 +110,11 @@ class FileRenamerApp:
         
         if mode == "add":
             # Hide replace mode widgets
-            self.find_label.grid_remove()
-            self.find_entry.grid_remove()
-            self.replace_label.grid_remove()
-            self.replace_entry.grid_remove()
+            if hasattr(self, 'find_label'):
+                self.find_label.grid_remove()
+                self.find_entry.grid_remove()
+                self.replace_label.grid_remove()
+                self.replace_entry.grid_remove()
             
             # Show add mode widgets
             self.text_label.config(text="Text to add to front of filenames:")
